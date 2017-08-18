@@ -1,5 +1,4 @@
-/node-modules/*
-yarn-error.log 
+web/node_modules
+yarn-error.log
 yarn.lock
 package-lock.json
-
