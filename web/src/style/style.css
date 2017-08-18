@@ -50,13 +50,13 @@ html {
 
 .list-group-item {
   height: 48px;
-  background-color: #272727 !important;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.0) !important;
+  color: black;
   font-family: 'Roboto', sans-serif;
   font-weight: 'bold';
   text-transform: uppercase;
   border-width: 1 1 0px 1;
-  border-color:  #272727 ;
+  border-color:  rgba(0, 0, 0, 0.0);
   border-radius: 0;
 }
 
@@ -66,10 +66,9 @@ html {
 
 .list-group-item:hover {
   text-decoration: none;
-  background-color: #272727 !important;
   border-style: solid;
   text-transform: uppercase;
-  border-width: 1px 1px 0px 1px;
+  border-width: 2px 2px 0px 2px;
   border-color: #334b72 #334b72 #334b72 #334b72;
   border-radius: 10px 10px 0px 0px;
 }
@@ -77,12 +76,12 @@ html {
 .active {
   text-decoration: none;
   border-radius: 10px 10px 0px 0px;
-  background-color: #000000 !important;
+  background-color: #272727 !important;
   border-style: solid;
   text-transform: uppercase;
   padding: 0.75rem 1.25rem;
-  border-width: 1px 1px 0px 1px;
-  border-color: #334b72 #334b72 #334b72 #334b72 !important;
+  border-width: 2px 2px 0px 2px;
+  border-color: #272727 #272727 #272727 #272727 !important;
 }
 
 
