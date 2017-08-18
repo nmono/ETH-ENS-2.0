@@ -1,6 +1,11 @@
 export default {
   datePicker: {
     selectColor: '#334b72',
+    color: '#334b72',
+    headerColor: '#859bbc',
+  },
+  flatButton: {
+    primaryTextColor: '#859bbc',
   },
   palette: {
     primary1Color: "#334b72",
