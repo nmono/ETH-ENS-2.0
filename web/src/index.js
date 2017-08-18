@@ -30,8 +30,6 @@ import Search from './components/Search'
 import web3 from 'web3'
 
 
-require('roboto-fontface/css/roboto/roboto-fontface.css');
-require('bootstrap/dist/css/bootstrap.min.css');
 
 var injectTapEventPlugin = require("react-tap-event-plugin")
 injectTapEventPlugin()

@@ -70,19 +70,19 @@ html {
   border-style: solid;
   text-transform: uppercase;
   border-width: 1px 1px 0px 1px;
-  border-color: #ff5000 #ff5000 #ff5000 #ff5000;
-  border-radius: 0
+  border-color: #334b72 #334b72 #334b72 #334b72;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .active {
   text-decoration: none;
+  border-radius: 10px 10px 0px 0px;
   background-color: #000000 !important;
   border-style: solid;
   text-transform: uppercase;
   padding: 0.75rem 1.25rem;
   border-width: 1px 1px 0px 1px;
-  border-color: #ff5000 #ff5000 #ff5000 #ff5000 !important;
-  border-radius: 0 !important;
+  border-color: #334b72 #334b72 #334b72 #334b72 !important;
 }
 
 

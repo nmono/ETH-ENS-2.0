@@ -1,13 +1,14 @@
 export default {
   datePicker: {
-    selectColor: '#ff5000'
+    selectColor: '#334b72',
   },
   palette: {
-    primary1Color: "#ff5000",
+    primary1Color: "#334b72",
     accent1Color: "#292b2c",
     disabledColor: "#b0b0b0",
-    pickerHeaderColor: "#ff5000",
-    textColor: '#000000',
+    pickerHeaderColor: "#334b72",
+    textColor: '#ffffff',
+    canvasColor: '#292b2c',
     secondaryTextColor: '#808080',
     alternateTextColor: '#ffffff',
   }

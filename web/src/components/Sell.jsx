@@ -22,7 +22,7 @@ export default class Sell extends Component {
              price : 20.1,
              highestbid : 22,
               name : "LMAA",
-           state : 1}
+           state : 0}
 
       ]
     }
