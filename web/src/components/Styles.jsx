@@ -23,4 +23,8 @@ export default {
     errorColor: '#ff0000',
     focusColor: '#859bbc'
   },
+  raisedButton: {
+    disabledColor: "#859bbc",
+    disabledTextColor: '#000000'
+  }
 }

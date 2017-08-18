@@ -49,6 +49,7 @@ constructor(props){
     finished: false,
     stepIndex: props.auction.state,
   }
+  this.handleChange = this.handleChange.bind(this)
 }
   handleNext = () => {
     const {stepIndex} = this.state;
@@ -72,12 +73,18 @@ constructor(props){
       case 1:
         return 'Transfer your domain';
       case 2:
-        return 'Running auction';
+        return 'Auction running';
       case 3:
           return 'Auction ended';
       default:
         return 'You\'re a long way from home sonny jim!';
     }
+  }
+
+  handleChange(event) {
+    const name = event.target.name
+    const value = event.target.value
+    this.setState({ [name]: value})
   }
 
   render() {
@@ -109,21 +116,35 @@ constructor(props){
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
                   </div>
                   <div className="col-6" style = {{textAlign : "left"}} >
-                  <TextField
-                      floatingLabelText="Your domain"
-                      name = "domainName"
-                  />
-                  <TextField
-                    floatingLabelText="Starting bid"
-                    name = "startingBid"
-                  />
-                  <TextField
-                    floatingLabelText="Price for immmeditate sell"
-                    name = "immediate Sell"
-                  />
-                <DatePicker
-                  name = "date"
-                />
+                    <TextField
+                        floatingLabelText="Your domain"
+                        name = "domainName"
+                    />
+                    <TextField
+                      floatingLabelText="Starting bid"
+                      name = "startingBid"
+                      onChange = {this.handleChange}
+                      value = {this.state.startingBid}
+                      errorText = {!this.state.startingBid === "" && isNaN (this.state.startingBid)? "Enter a valid number" :"" }
+                    />
+                    <TextField
+                      floatingLabelText="Price for immmeditate sell"
+                      name = "immediateSell"
+                      value = {this.state.immediateSell}
+                      onChange = {this.handleChange}
+                      errorText = {!this.state.immediateSell === "" && isNaN (this.state.immediateSell) ? "Enter a valid number" :"" }
+                    />
+                    <DatePicker
+                      name = "date"
+                      floatingLabelText="Auction will end at"
+                    />
+                  {(isNaN (this.state.startingBid) || isNaN (this.state.immediateSell) || this.state.immediateSell === "" || this.state.startingBid === "") ? "" :
+                    <RaisedButton
+                      primary = {true}
+                      fullWidth = {true}
+                      label = "Start auction"
+                    />
+                }
                 </div>
                 <div className = "col"></div>
               </div>
@@ -232,7 +253,6 @@ constructor(props){
               </div>
             </div>
           )}
-
         </div>
       </div>
     );
