@@ -1,7 +1,7 @@
 export default {
   datePicker: {
     selectColor: '#334b72',
-    color: '#334b72',
+    color: '#859bbc',
     headerColor: '#859bbc',
   },
   flatButton: {

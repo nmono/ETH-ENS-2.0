@@ -13,7 +13,15 @@ export default class Search extends Component {
       search : "",
       address : "",
       errorText :"",
-      owner : ""
+      owner : "",
+
+      auctions:[
+        {name : "abcd", price: "112", bidder: "ddd", timeLeft: "12"},
+        {name : "w", price: "112", bidder: "ddd", timeLeft: "12"},
+        {name : "dkasd", price: "112", bidder: "ddd", timeLeft: "12"},
+        {name : "dasdsa", price: "112", bidder: "ddd", timeLeft: "12"},
+        {name : "99daqdas", price: "112", bidder: "ddd", timeLeft: "12"}
+      ]
     }
     this.handleChange = this.handleChange.bind(this)
     this.lookup = this.lookup.bind(this)
@@ -60,7 +68,35 @@ export default class Search extends Component {
               <div>ETH OWNER : {this.state.owner}</div>
           </div>
         </div>
-        <hr style = {{backgroundColor : Styles.palette.primary1Color, marginTop: 20, marginBottom: 20}}></hr>
+        <hr style = {{backgroundColor : Styles.palette.disabledColor, marginTop: 20, marginBottom: 20}}></hr>
+        <div className = "row">
+            <div className = "col"/>
+            <div className = "col-2" style = {{color : Styles.palette.disabledColor, textAlign: "center"}}>Name</div>
+            <div className = "col-2" style = {{color : Styles.palette.disabledColor, textAlign: "center"}}>Price</div>
+            <div className = "col-2" style = {{color : Styles.palette.disabledColor, textAlign: "center"}}>Time left</div>
+            <div className = "col"/>
+        </div>
+        <div className = "row" style = {{marginTop: 30}}>
+          {this.state.auctions.map(auction =>
+            <div className = "col-3" key = {auction.name} style = {{padding:10}}>
+              <div style =  {{  borderStyle: 'solid',
+                                padding: 5,
+                                borderWidth: '3px',
+                                borderColor: Styles.palette.primary1Color}}
+              >
+              <div style = {{color : Styles.palette.disabledColor}}>{auction.name}</div>
+              <div style = {{fontSize:12}}>
+                <div style={{width: '50%', display: 'inline-block'}}>Current price</div>
+                <div style={{width: '50%', display: 'inline-block', textAlign: "right"}}>{auction.price}</div>
+              </div>
+              <div style = {{fontSize:12}}>
+                <div style={{width: '50%', display: 'inline-block'}}>Time left</div>
+                <div style={{width: '50%', display: 'inline-block', textAlign: "right"}}>{auction.timeLeft}</div>
+              </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     )
   }

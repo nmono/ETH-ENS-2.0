@@ -38,7 +38,6 @@ injectTapEventPlugin()
 const PageRoute = ({ component: Component, path, sitePath, ...rest }) => (
   <Route {...rest} path={path} render={props => {
     return (
-
       <div className="inner-content">
         <TopBar />
           <div>
@@ -51,19 +50,17 @@ const PageRoute = ({ component: Component, path, sitePath, ...rest }) => (
 
   ReactDOM.render(
     <MuiThemeProvider  muiTheme={getMuiTheme(styles)}>
-      <Web3Provider>
+  {/*    <Web3Provider>*/}
       <Router history={history}>
         <Switch>
           <PageRoute sitePath="/list" path="/list" component={Search} />
           <PageRoute sitePath="/sell" path="/sell" component={Sell} />
           <PageRoute sitePath="/faq" path="/faq" component={FAQ} />
-            <PageRoute sitePath="/" path="/" component={Main} />
-
+          <PageRoute sitePath="/" path="/" component={Main} />
           <Route component={() => (<Redirect to="/"/>)} />
-
        </Switch>
       </Router>
-    </Web3Provider>
-    </MuiThemeProvider>
+{/*    </Web3Provider>**/}
+  </MuiThemeProvider>
   , document.getElementById('root'))
   registerServiceWorker()

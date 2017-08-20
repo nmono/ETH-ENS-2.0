@@ -5,6 +5,10 @@ import Styles from './Styles.jsx'
 import logo from '../style/img/clouds.png'
 
 
+import Sell from 'material-ui/svg-icons/action/list'
+import Search from 'material-ui/svg-icons/action/search'
+
+
 export default class SideBar extends Component {
   constructor(props) {
     super(props)
