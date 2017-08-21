@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import TextField from 'material-ui/TextField'
 import Styles from './Styles.jsx'
-
+import Pagination from './Pagination'
 
 export default class Search extends Component {
 
@@ -20,7 +20,21 @@ export default class Search extends Component {
         {name : "w", price: "112", bidder: "ddd", timeLeft: "12"},
         {name : "dkasd", price: "112", bidder: "ddd", timeLeft: "12"},
         {name : "dasdsa", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "99daqdas", price: "112", bidder: "ddd", timeLeft: "12"}
+        {name : "99daqdas", price: "112", bidder: "ddd", timeLeft: "12"},
+        {name : "99daqdas", price: "112", bidder: "ddd", timeLeft: "12"},
+
+        {name : "ere", price: "112", bidder: "ddd", timeLeft: "12"},
+
+        {name : "da", price: "112", bidder: "ddd", timeLeft: "12"},
+        {name : "fda", price: "112", bidder: "ddd", timeLeft: "12"},
+
+        {name : "343fas", price: "112", bidder: "ddd", timeLeft: "12"},
+
+        {name : "dasA", price: "112", bidder: "ddd", timeLeft: "12"},
+
+
+        {name : "e3ew", price: "112", bidder: "ddd", timeLeft: "12"},
+
       ]
     }
     this.handleChange = this.handleChange.bind(this)
@@ -76,11 +90,15 @@ export default class Search extends Component {
             <div className = "col-2" style = {{color : Styles.palette.disabledColor, textAlign: "center"}}>Time left</div>
             <div className = "col"/>
         </div>
-        <div className = "row" style = {{marginTop: 30}}>
+        <div className = "row" style = {{marginTop: 20}}>
           {this.state.auctions.map(auction =>
-            <div className = "col-3" key = {auction.name} style = {{padding:10}}>
+            <div className = "col-3" key = {auction.name} style = {{padding:10, cursor: 'pointer'}}
+              onclick = {() => {}}
+              >
               <div style =  {{  borderStyle: 'solid',
-                                padding: 5,
+                                padding: 7,
+                                paddingRight: 20,
+                                paddingLeft: 20,
                                 borderWidth: '3px',
                                 borderColor: Styles.palette.primary1Color}}
               >
@@ -96,6 +114,7 @@ export default class Search extends Component {
               </div>
             </div>
           )}
+          <Pagination pages = {2} page = {1} />
         </div>
       </div>
     )

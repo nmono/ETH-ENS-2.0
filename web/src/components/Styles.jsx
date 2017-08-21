@@ -2,18 +2,18 @@ export default {
   datePicker: {
     selectColor: '#334b72',
     color: '#859bbc',
-    headerColor: '#859bbc',
+    headerColor: '#334b72',
   },
   flatButton: {
     primaryTextColor: '#859bbc',
   },
   palette: {
     primary1Color: "#334b72",
-    accent1Color: "#292b2c",
+    accent1Color: "#272727",
     disabledColor: "#859bbc",
     pickerHeaderColor: "#334b72",
     textColor: '#ffffff',
-    canvasColor: '#292b2c',
+    canvasColor: '#272727',
     secondaryTextColor: '#808080',
     alternateTextColor: '#ffffff',
   },
