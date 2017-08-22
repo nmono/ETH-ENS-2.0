@@ -3,6 +3,12 @@ import React, { Component } from 'react'
 import TextField from 'material-ui/TextField'
 import Styles from './Styles.jsx'
 import Pagination from './Pagination'
+import SortDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
+import SortUp from 'material-ui/svg-icons/hardware/keyboard-arrow-up';
+import IconButton from 'material-ui/IconButton'
+import Sorter from './Sorter'
+import AuctionDetails from './AuctionDetails'
+import Dialog from 'material-ui/Dialog'
 
 export default class Search extends Component {
 
@@ -11,34 +17,35 @@ export default class Search extends Component {
     super(props)
     this.state ={
       search : "",
+      page : 0,
       address : "",
       errorText :"",
       owner : "",
+      sortMode: "name1",
+      currentAuction: {},
+      dialogOpen: false,
 
       auctions:[
         {name : "abcd", price: "112", bidder: "ddd", timeLeft: "12"},
         {name : "w", price: "112", bidder: "ddd", timeLeft: "12"},
+        {name : "abffcd", price: "112", bidder: "ddd", timeLeft: "12"},
+
         {name : "dkasd", price: "112", bidder: "ddd", timeLeft: "12"},
         {name : "dasdsa", price: "112", bidder: "ddd", timeLeft: "12"},
         {name : "99daqdas", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "99daqdas", price: "112", bidder: "ddd", timeLeft: "12"},
-
+        {name : "99daqdafs", price: "112", bidder: "ddd", timeLeft: "12"},
         {name : "ere", price: "112", bidder: "ddd", timeLeft: "12"},
-
         {name : "da", price: "112", bidder: "ddd", timeLeft: "12"},
         {name : "fda", price: "112", bidder: "ddd", timeLeft: "12"},
-
         {name : "343fas", price: "112", bidder: "ddd", timeLeft: "12"},
-
         {name : "dasA", price: "112", bidder: "ddd", timeLeft: "12"},
-
-
         {name : "e3ew", price: "112", bidder: "ddd", timeLeft: "12"},
-
       ]
     }
     this.handleChange = this.handleChange.bind(this)
+    this.sortHandler = this.sortHandler.bind(this)
     this.lookup = this.lookup.bind(this)
+    this.filter = this.filter.bind(this)
   }
 
   handleChange(event) {
@@ -47,6 +54,10 @@ export default class Search extends Component {
     this.setState({ [name]: value})
     this.lookup(value)
   }
+
+  handleClose = () => {
+    this.setState({dialogOpen: false});
+  };
 
   lookup(value){
     var ENS = require('ethereum-ens');
@@ -67,9 +78,29 @@ export default class Search extends Component {
     .catch((reason) => {});
   }
 
+  sortHandler (dimension, direction) {
+    var temp = this.state.auctions.sort(function(a,b) {
+      return direction*a[dimension].localeCompare(b[dimension])
+    })
+    this.setState({auctions : temp})
+  }
+
+  filter (current, index){
+    return index >= this.state.page * 6 && index < (1 + this.state.page)*6
+  }
+
   render(){
     return (
       <div className = "container">
+        <Dialog
+            open = {this.state.dialogOpen}
+            auction={this.state.currentAuction}
+            modal={false}
+            titleStyle = {{backgroundColor: Styles.palette.primary1Color, padding: 10}}
+            onRequestClose={this.handleClose}
+          >
+          <AuctionDetails auction={this.state.currentAuction} />
+       </Dialog>
         <div className = "row">
           <div className = "col-1">Search</div>
           <div className = "col-3">
@@ -82,18 +113,13 @@ export default class Search extends Component {
               <div>ETH OWNER : {this.state.owner}</div>
           </div>
         </div>
-        <hr style = {{backgroundColor : Styles.palette.disabledColor, marginTop: 20, marginBottom: 20}}></hr>
+        <hr style = {{backgroundColor : Styles.palette.disabledColor, marginTop: 20, marginBottom: 10}}></hr>
+        <Sorter sortHandler={this.sortHandler}
+                includeStatus = {false}/>
         <div className = "row">
-            <div className = "col"/>
-            <div className = "col-2" style = {{color : Styles.palette.disabledColor, textAlign: "center"}}>Name</div>
-            <div className = "col-2" style = {{color : Styles.palette.disabledColor, textAlign: "center"}}>Price</div>
-            <div className = "col-2" style = {{color : Styles.palette.disabledColor, textAlign: "center"}}>Time left</div>
-            <div className = "col"/>
-        </div>
-        <div className = "row" style = {{marginTop: 20}}>
-          {this.state.auctions.map(auction =>
+          {this.state.auctions.filter(this.filter).map(auction =>
             <div className = "col-3" key = {auction.name} style = {{padding:10, cursor: 'pointer'}}
-              onclick = {() => {}}
+              onClick = {() => {this.setState({currentAuction: auction, dialogOpen: true})}}
               >
               <div style =  {{  borderStyle: 'solid',
                                 padding: 7,
@@ -114,7 +140,10 @@ export default class Search extends Component {
               </div>
             </div>
           )}
-          <Pagination pages = {2} page = {1} />
+          {this.state.auctions.length > 5 ?
+            <Pagination pages = {Math.ceil(this.state.auctions.length/6)} page = {this.state.page} jumpTo = {(page) => this.setState({page: page})} />
+            : ""
+          }
         </div>
       </div>
     )

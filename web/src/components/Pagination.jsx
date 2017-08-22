@@ -27,11 +27,12 @@ const activeLabel = {
 
 const activeStyle = {
   width: 38,
+  marginLeft: 2,
   height: 38,
   minWidth : 38,
   verticalAlign: "text-bottom",
   fontSize : 20,
-  marginTop: 3,
+  marginTop: "1px",
   color: Styles.palette.textColor,
   borderColor : Styles.palette.primary1Color,
   borderRadius : '50%',
@@ -43,7 +44,7 @@ export default class Pagination extends Component {
 
   render () {
     return (
-      <div style = {{paddingTop: 5, paddingBottom: 15, position: 'fixed', backgroundColor: Styles.palette.canvasColor}}
+      <div style = {{paddingTop: 5, paddingBottom: 55, position: 'fixed', backgroundColor: Styles.palette.canvasColor}}
            className = "fixed-bottom">
         <div className = "row">
           <div className = "col"></div>

@@ -34,6 +34,7 @@ import web3 from 'web3'
 var injectTapEventPlugin = require("react-tap-event-plugin")
 injectTapEventPlugin()
 
+//require('roboto-fontface/css/roboto/roboto-fontface.css');
 
 const PageRoute = ({ component: Component, path, sitePath, ...rest }) => (
   <Route {...rest} path={path} render={props => {

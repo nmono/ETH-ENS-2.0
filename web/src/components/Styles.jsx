@@ -13,13 +13,13 @@ export default {
     disabledColor: "#859bbc",
     pickerHeaderColor: "#334b72",
     textColor: '#ffffff',
-    canvasColor: '#272727',
+    canvasColor: '#353535',
     secondaryTextColor: '#808080',
     alternateTextColor: '#ffffff',
   },
   stepper: {
     backgroundColor: 'transparent',
-    inactiveIconColor: '#859bbc',
+    inactiveIconColor: 'transparent',
     textColor: '#ff0000',
   },
   textField: {

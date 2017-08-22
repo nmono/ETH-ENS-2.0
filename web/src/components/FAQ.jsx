@@ -54,8 +54,7 @@ export default class FAQ extends Component {
                highestbid : 22,
                name : "LMAA",
                state : 0}}/>
-
-</Dialog>
+           </Dialog>
           <div>
             <FlatButton
                     primary = {true}

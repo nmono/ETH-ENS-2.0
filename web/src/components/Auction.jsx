@@ -3,6 +3,8 @@ import RaisedButton from "material-ui/RaisedButton"
 import TextField from "material-ui/TextField"
 import DatePicker from "material-ui/DatePicker"
 import Moment from "moment"
+import Sorter from './Sorter'
+
 
 import {
   Step,
@@ -15,7 +17,7 @@ export default class Auction extends Component {
   constructor(props){
     super(props)
     this.state = {
-      stepIndex: props.auction.state,
+      stepIndex: parseInt(props.auction.state),
       startingBid : "",
       immediateSell: ""
     }
@@ -136,13 +138,22 @@ export default class Auction extends Component {
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
                   </div>
                   <div className="col-8">
-                    <div className = "row" style = {{ top: '35%', position: 'relative'}}
->                      <div className="col-12" >
+                    <div className = "row">
+                      <div className="col-4">
+                        Domain name
+                      </div>
+                      <div className="col-8" style = {{textAlign: "right"}}>
+                        {this.props.auction.name}
+                      </div>
+                    </div>
+                    <div className = "row" style = {{ height: "100%"}}>
+                      <div className="col" style = {{ display: "table", height: "100%"  }}>
+                        <div style = {{display: "table-cell",verticalAlign: 'middle', textAlign: "center"}}>
                         <RaisedButton
                           primary = {true}
                           fullWidth = {true}
                           label = "transfer your domain"
-                        />
+                        /></div>
                       </div>
                     </div>
                   </div>
@@ -154,6 +165,14 @@ export default class Auction extends Component {
                       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
                     </div>
                   <div className="col-8" style = {{textAlign : "left"}} >
+                    <div className = "row" style = {{marginBottom: 20}}>
+                      <div className="col-4">
+                        Domain name
+                      </div>
+                      <div className="col-8" style = {{textAlign: "right"}}>
+                        {this.props.auction.name}
+                      </div>
+                    </div>
                     <div className = "row" style = {{marginBottom: 20}}>
                       <div className="col-4">
                         Highest bid
@@ -180,14 +199,22 @@ export default class Auction extends Component {
                       </div>
                     </div>
                   </div>
-              </div>
+                </div>
               :
               <div className="row">
                 <div className="col-4" style = {{textAlign : "left", fontStyle : "italic"}} >
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
                 </div>
                 <div className = "col-8">
-                  <div className = "row">
+                  <div className = "row" style = {{marginBottom: 20}}>
+                    <div className="col-4">
+                      Domain name
+                    </div>
+                    <div className="col-8" style = {{textAlign: "right"}}>
+                      {this.props.auction.name}
+                    </div>
+                  </div>
+                  <div className = "row" style = {{marginBottom: 20}}>
                     <div className="col-6" style = {{textAlign : "left"}}>
                       You sold your domain for
                     </div>
@@ -195,7 +222,7 @@ export default class Auction extends Component {
                       {`${this.props.auction.price} ETH`}
                     </div>
                   </div>
-                  <div className = "row" style = {{marginTop: 20}}>
+                  <div className = "row">
                     <div className="col-6" style = {{textAlign : "left"}}>
                       Buyer
                     </div>
@@ -205,6 +232,7 @@ export default class Auction extends Component {
                   </div>
                 </div>
               </div>
+
           }
             <div>
               <div style={{marginTop: 12}}>

@@ -3,14 +3,14 @@ body {
   overflow-y: hidden;
   min-height: 100%;
   font-family: 'Roboto', sans-serif !important;
-  background-color: #272727;
+  background-color: #353535;
   color:#ffffff !important;
 
 }
 
 html {
   height: 100%;
-  background-color: #272727;
+  background-color: #353535;
 }
 
 .container{
@@ -51,7 +51,7 @@ html {
 
 .list-group-item {
   height: 48px;
-  font-size: 20px !important;
+  font-size: 18px !important;
   background-color: rgba(0, 0, 0, 0.0) !important;
   color: black;
   padding: 0.75rem 1.25rem;
@@ -72,20 +72,20 @@ html {
   border-style: solid;
   text-transform: uppercase;
   border-width: 2px 2px 0px 2px;
-  border-color: #272727 #272727 #272727 #272727;;
+  border-color: #353535 #353535 #353535 #353535;;
   border-radius: 5px 5px 0px 0px;
 }
 
 .active {
   text-decoration: none;
   border-radius: 5px 5px 0px 0px;
-  background-color: #272727 !important;
+  background-color: #353535 !important;
   border-style: solid;
-  font-size: 20px !important;
+  font-size: 18px !important;
   text-transform: uppercase;
   padding: 0.75rem 1.25rem;
   border-width: 2px 2px 0px 2px;
-  border-color: #272727 #272727 #272727 #272727 !important;
+  border-color: #353535 #353535 #353535 #353535 !important;
 }
 
 

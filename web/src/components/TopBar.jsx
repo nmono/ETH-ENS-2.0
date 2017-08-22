@@ -45,7 +45,7 @@ const TopBarEntry = ({to, icon, icon2, name, active, style}) => {
       <Link to={to} style = {{color: "#ffffff"}}>
         <div className={` ${active ? "active" : "list-group-item"}`} style={{textAlign:"center"}}>
             <div style = {{display: "inline"}}>
-              <i className = "material-icons" style = {{float: "left", color: (active)? 'white' : 'black', paddingTop:0, fontSize: 28}}>{icon}</i>
+              <i className = "material-icons" style = {{float: "left", color: (active)? 'white' : 'black', paddingTop:0, fontSize: 24}}>{icon}</i>
               {name}
             </div>
         </div>
