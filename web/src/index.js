@@ -19,7 +19,6 @@ import history from './components/history'
 
 
 import TopBar from './components/TopBar'
-import Main from './components/Main'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 import FAQ from './components/FAQ'
@@ -27,7 +26,6 @@ import Sell from './components/Sell'
 import Search from './components/Search'
 
 
-import web3 from 'web3'
 
 
 

@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 
-import Styles from './Styles.jsx'
-
 export default class StatusBadge  extends Component {
-
-
 
   render(){
     return(

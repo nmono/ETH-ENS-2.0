@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import RaisedButton from "material-ui/RaisedButton"
 import TextField from "material-ui/TextField"
 import DatePicker from "material-ui/DatePicker"
-import Moment from "moment"
-import Sorter from './Sorter'
 import Styles from './Styles.jsx'
 import StatusBadge from './StatusBadge'
 
@@ -13,35 +11,16 @@ import {
   StepLabel,
 } from 'material-ui/Stepper';
 
-
-
-
-import WarningIcon from 'material-ui/svg-icons/alert/warning';
-import {red500} from 'material-ui/styles/colors';
-
 export default class Auction extends Component {
   constructor(props){
     super(props)
     this.state = {
-      stepIndex: parseInt(props.auction.state),
+      stepIndex: props.auction.state,
       startingBid : "",
       immediateSell: ""
     }
     this.handleChange = this.handleChange.bind(this)
-}
-  handleNext = () => {
-    const {stepIndex} = this.state;
-    this.setState({
-      stepIndex: stepIndex + 1,
-    });
-  };
-
-  handlePrev = () => {
-    const {stepIndex} = this.state;
-    if (stepIndex > 0) {
-      this.setState({stepIndex: stepIndex - 1});
-    }
-  };
+  }
 
   handleChange(event) {
     const name = event.target.name
@@ -50,7 +29,6 @@ export default class Auction extends Component {
   }
 
   render() {
-    const {finished, stepIndex} = this.state;
     const contentStyle = {margin: '0 16px'};
 
     return (
@@ -315,24 +293,7 @@ export default class Auction extends Component {
                   </div>
                 </div>
               </div>
-
-          }
-            <div>
-              <div style={{marginTop: 12}}>
-                <RaisedButton
-                  label="Back"
-                  disabled={stepIndex === 0}
-                  onTouchTap={this.handlePrev}
-                  style={{marginRight: 12}}
-                />
-                <RaisedButton
-                  label={stepIndex === 2 ? 'Finish' : 'Next'}
-                  primary={true}
-                  onTouchTap={this.handleNext}
-                />
-              </div>
-            </div>
-
+            }
         </div>
       </div>
     );

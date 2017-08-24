@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import Moment from "moment"
 import Auction from "./Auction"
 import Styles from './Styles.jsx'
 import Pagination from './Pagination'
-import Badge from 'material-ui/Badge'
 import FlatButton from 'material-ui/FlatButton'
-import IconButton from 'material-ui/FlatButton'
 import Sorter from './Sorter'
 
 import Dialog from 'material-ui/Dialog'
-import AddAuction from 'material-ui/svg-icons/content/add-circle-outline';
 import StatusBadge from './StatusBadge'
 
 export default class Sell extends Component {

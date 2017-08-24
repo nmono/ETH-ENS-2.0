@@ -1,13 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import Styles from './Styles.jsx'
 import logo from '../style/img/clouds.png'
-
-
-import Sell from 'material-ui/svg-icons/action/list'
-import Search from 'material-ui/svg-icons/action/search'
-
 
 export default class SideBar extends Component {
   constructor(props) {
@@ -26,7 +20,7 @@ export default class SideBar extends Component {
   render() {
     return (
       <div style={{marginTop:5}}>
-        <img src = {logo}/>
+        <img alt="logo" src = {logo}/>
         <div className = "row" style = {{width : '100%', marginTop: -48}}>
           <div className = "col-3"></div>
                 <TopBarEntry icon = "search" name = {this.state.menu.list} to = "/list" active = {this.isActive("list")} />

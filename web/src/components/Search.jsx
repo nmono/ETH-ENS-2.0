@@ -3,9 +3,6 @@ import React, { Component } from 'react'
 import TextField from 'material-ui/TextField'
 import Styles from './Styles.jsx'
 import Pagination from './Pagination'
-import SortDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
-import SortUp from 'material-ui/svg-icons/hardware/keyboard-arrow-up';
-import IconButton from 'material-ui/IconButton'
 import Sorter from './Sorter'
 import AuctionDetails from './AuctionDetails'
 import Dialog from 'material-ui/Dialog'
@@ -62,13 +59,13 @@ export default class Search extends Component {
   lookup(value){
     var ENS = require('ethereum-ens');
     var ens = new ENS(window.web3);
-    var address = ens.resolver(value.trim()).addr().then((addr) => {
+    ens.resolver(value.trim()).addr().then((addr) => {
       this.setState({address : addr, errorText :""})
     })
     .catch((reason) => {
-      this.setState({address : "", errorText : new String(reason), address :""})
+      this.setState({address : "", errorText : new String(reason)})
     });
-    var owner = ens.owner(value.trim()).then((owner) => {
+    ens.owner(value.trim()).then((owner) => {
       if (this.state.adress !== "")
         this.setState({owner : owner})
       else
