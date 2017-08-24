@@ -4,21 +4,20 @@
   "private": true,
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "bootstrap": "4.0.0-alpha.6",
     "ethereum-ens": "^0.7.1",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^3.10.1",
     "material-ui": "^0.18.5",
     "moment": "^2.18.1",
     "react": "^15.5.4",
-    "bootstrap": "4.0.0-alpha.6",
-    "lodash": "^3.10.1",
-    "roboto-fontface": "^0.8.0",
     "react-dom": "^15.5.4",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
     "react-web3": "^0.4.0",
     "reactstrap": "^4.6.2",
+    "roboto-fontface": "^0.8.0",
     "web3": "^0.20.0"
   },
   "devDependencies": {
@@ -29,6 +28,5 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }

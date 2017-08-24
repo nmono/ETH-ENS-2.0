@@ -26,20 +26,20 @@ export default class Search extends Component {
       dialogOpen: false,
 
       auctions:[
-        {name : "abcd", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "w", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "abffcd", price: "112", bidder: "ddd", timeLeft: "12"},
+        {name : "abcd", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
+        {name : "w", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
+        {name : "abffcd", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
 
-        {name : "dkasd", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "dasdsa", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "99daqdas", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "99daqdafs", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "ere", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "da", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "fda", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "343fas", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "dasA", price: "112", bidder: "ddd", timeLeft: "12"},
-        {name : "e3ew", price: "112", bidder: "ddd", timeLeft: "12"},
+        {name : "dkasd", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
+        {name : "dasdsa", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
+        {name : "99daqdas", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
+        {name : "99daqdafs", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
+        {name : "ere", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
+        {name : "da", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
+        {name : "fda", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
+        {name : "343fas", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
+        {name : "dasA", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
+        {name : "e3ew", highestBid: "112", highestBidder: "ddd", timeLeft: "12"},
       ]
     }
     this.handleChange = this.handleChange.bind(this)
@@ -123,15 +123,15 @@ export default class Search extends Component {
               >
               <div style =  {{  borderStyle: 'solid',
                                 padding: 7,
-                                paddingRight: 20,
-                                paddingLeft: 20,
+                                paddingRight: 10,
+                                paddingLeft: 10,
                                 borderWidth: '3px',
                                 borderColor: Styles.palette.primary1Color}}
               >
               <div style = {{color : Styles.palette.disabledColor}}>{auction.name}</div>
               <div style = {{fontSize:12}}>
                 <div style={{width: '50%', display: 'inline-block'}}>Current price</div>
-                <div style={{width: '50%', display: 'inline-block', textAlign: "right"}}>{auction.price}</div>
+                <div style={{width: '50%', display: 'inline-block', textAlign: "right"}}>{auction.highestBid}</div>
               </div>
               <div style = {{fontSize:12}}>
                 <div style={{width: '50%', display: 'inline-block'}}>Time left</div>

@@ -10,7 +10,7 @@ import Sorter from './Sorter'
 
 import Dialog from 'material-ui/Dialog'
 import AddAuction from 'material-ui/svg-icons/content/add-circle-outline';
-
+import StatusBadge from './StatusBadge'
 
 export default class Sell extends Component {
 
@@ -21,7 +21,7 @@ export default class Sell extends Component {
       auctions : [
         {NH :1233,
            highesbidder : 122222,
-          time : 1111,
+           timeLeft : 1111,
            price : 20.1,
            buyer: "ff",
            highestbid : 22,
@@ -29,7 +29,7 @@ export default class Sell extends Component {
            state : "2"},
          {NH :1233,
             highesbidder : 122222,
-           time : 1111,
+            timeLeft : 1111,
             price : 20.1,
             buyer: "ff",
             highestbid : 22,
@@ -37,7 +37,7 @@ export default class Sell extends Component {
             state : "1"},
           {NH :1233,
              highesbidder : 122222,
-            time : 1111,
+            timeLeft : 1111,
              price : 20.1,
              buyer: "ff",
              highestbid : 22,
@@ -45,7 +45,7 @@ export default class Sell extends Component {
              state : "3"},
            {NH :1233,
               highesbidder : 122222,
-             time : 1111,
+             timeLeft : 1111,
               price : 20.1,
               buyer: "fddf",
               highestbid : 22,
@@ -115,8 +115,15 @@ export default class Sell extends Component {
                               paddingRight:20, paddingLeft: 15,
                               borderWidth: '3px',
                               borderColor: Styles.palette.primary1Color}}>
-              <div className = "col-3" style = {{padding: 0, textAlign: 'left'}}>
-                <AddAuction style = {{marginTop: 8, height:44, width:44, color: Styles.palette.primary1Color}}/>
+              <div className = "col-3" style = {{padding: 0, textAlign: 'left', height: 60}}>
+                <div style = {{height: "100%", display: "table"}}>
+                  <div style = {{verticalAlign: 'middle', display: "table-cell"}}>
+                    <StatusBadge  state = {"0"}
+                              color = {Styles.palette.textColor}
+                              backgroundColor = {Styles.palette.primary1Color}
+                    />
+                  </div>
+                </div>
               </div>
               <div className = "col-9" style = {{padding: 0}}>
                 <div style = {{height: "100%", display: "table"}}>
@@ -131,24 +138,32 @@ export default class Sell extends Component {
               >
               <div className = "row"  style =  {{  borderStyle: 'solid',
                                 padding: 7,
-                                paddingRight:20, paddingLeft: 20,
+                                paddingRight: 10, paddingLeft: 10,
                                 borderWidth: '3px',
                                 borderColor: Styles.palette.primary1Color}}>
                 <div className = "col-3" style = {{padding: 0, textAlign: 'left'}}>
-                  <Badge  badgeStyle = {{marginTop: 8, height: 40, width: 40}}
-                          badgeContent = {parseInt(auction.state) + 1}   primary = {true}/>
+                  <div style = {{height: "100%", display: "table"}}>
+                    <div style = {{verticalAlign: 'middle', display: "table-cell"}}>
+                      <StatusBadge  state = {auction.state}
+                                color = {Styles.palette.textColor}
+                                backgroundColor = {Styles.palette.primary1Color}
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className = "col-9" style = {{padding: 0}}>
-
                   <div style = {{color : Styles.palette.disabledColor}}>{auction.name}</div>
                   <div style = {{fontSize:12}}>
-                    <div style={{width: '50%', display: 'inline-block'}}>Current price</div>
-                    <div style={{width: '50%', display: 'inline-block', textAlign: "right"}}>{auction.price}</div>
+                    <div style={{width: '60%', display: 'inline-block'}}>{auction.state === "3" ? "Sold for" : auction.state === "2" ? "Starting bid" :  "Current bid"}</div>
+                    <div style={{width: '40%', display: 'inline-block', textAlign: "right"}}>{auction.highestbid}</div>
                   </div>
-                  <div style = {{fontSize:12}}>
-                    <div style={{width: '50%', display: 'inline-block'}}>Time left</div>
-                      <div style={{width: '50%', display: 'inline-block', textAlign: "right"}}>{auction.timeLeft}</div>
-                  </div>
+                  {auction.state !== "3" ?
+                    <div style = {{fontSize:12}}>
+                      <div style={{width: '60%', display: 'inline-block'}}>{auction.state === "2" ? "Duration" : "Time left"}</div>
+                        <div style={{width: '40%', display: 'inline-block', textAlign: "right"}}>{auction.timeLeft}</div>
+                    </div>
+                  :   <div style = {{height:18}}/>
+                }
                 </div>
               </div>
             </div>

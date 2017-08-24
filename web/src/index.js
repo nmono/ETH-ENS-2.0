@@ -57,7 +57,7 @@ const PageRoute = ({ component: Component, path, sitePath, ...rest }) => (
           <PageRoute sitePath="/list" path="/list" component={Search} />
           <PageRoute sitePath="/sell" path="/sell" component={Sell} />
           <PageRoute sitePath="/faq" path="/faq" component={FAQ} />
-          <PageRoute sitePath="/" path="/" component={Main} />
+          <PageRoute sitePath="/" path="/" component={Search} />
           <Route component={() => (<Redirect to="/"/>)} />
        </Switch>
       </Router>

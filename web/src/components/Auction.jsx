@@ -4,7 +4,8 @@ import TextField from "material-ui/TextField"
 import DatePicker from "material-ui/DatePicker"
 import Moment from "moment"
 import Sorter from './Sorter'
-
+import Styles from './Styles.jsx'
+import StatusBadge from './StatusBadge'
 
 import {
   Step,
@@ -12,6 +13,11 @@ import {
   StepLabel,
 } from 'material-ui/Stepper';
 
+
+
+
+import WarningIcon from 'material-ui/svg-icons/alert/warning';
+import {red500} from 'material-ui/styles/colors';
 
 export default class Auction extends Component {
   constructor(props){
@@ -51,16 +57,93 @@ export default class Auction extends Component {
       <div style={{width: '100%', maxWidth: 800, margin: 'auto'}}>
         <Stepper activeStep={this.state.stepIndex}>
           <Step >
-            <StepLabel style={{color:'#ffffff'}}>List your domain</StepLabel>
+            <StepLabel style={{color: Styles.palette.textColor}}
+              icon = {this.state.stepIndex === 0 ?
+                <StatusBadge
+                  state = {"0"}
+                  color = {Styles.palette.textColor}
+                  backgroundColor = {Styles.palette.primary1Color}
+                  />
+                :
+                <StatusBadge
+                  state = {"-1"}
+                  color = {Styles.palette.canvasColor}
+                  backgroundColor = {Styles.palette.primary1Color}
+                  />}>
+              List your domain
+            </StepLabel>
           </Step>
           <Step>
-            <StepLabel style={{color:'#ffffff'}}>Transfer your domain</StepLabel>
+            <StepLabel style={{color: Styles.palette.textColor}}
+              icon = {this.state.stepIndex < 1 ?
+                <StatusBadge
+                  state = {"1"}
+                  color = {Styles.palette.textColor}
+                  backgroundColor = "transparent"
+                  />
+                : this.state.stepIndex === 1 ?
+                <StatusBadge
+                  state = {"1"}
+                  color = {Styles.palette.textColor}
+                  backgroundColor = {Styles.palette.primary1Color}
+                  />
+                :
+                <StatusBadge
+                 state = {"-1"}
+                 color = {Styles.palette.canvasColor}
+                 backgroundColor = {Styles.palette.primary1Color}
+                 />
+               }>
+              Transfer your domain
+            </StepLabel>
           </Step>
           <Step>
-            <StepLabel style={{color:'#ffffff'}}>Auction running</StepLabel>
+            <StepLabel style={{color: Styles.palette.textColor}}
+              icon = {this.state.stepIndex < 2 ?
+                <StatusBadge
+                  state = {"2"}
+                  color = {Styles.palette.textColor}
+                  backgroundColor = "transparent"
+                  />
+                : this.state.stepIndex === 2 ?
+                <StatusBadge
+                  state = {"2"}
+                  color = {Styles.palette.textColor}
+                  backgroundColor = {Styles.palette.primary1Color}
+                  />
+                :
+                <StatusBadge
+                 state = {"-1"}
+                 color = {Styles.palette.canvasColor}
+                 backgroundColor = {Styles.palette.primary1Color}
+                 />
+                }>
+              Auction running
+            </StepLabel>
           </Step>
           <Step>
-            <StepLabel style={{color:'#ffffff'}}>Auction ended</StepLabel>
+            <StepLabel style={{color: Styles.palette.textColor}}
+              icon = {this.state.stepIndex < 3 ?
+                <StatusBadge
+                  state = {"3"}
+                      color = {Styles.palette.textColor}
+                      backgroundColor = "transparent"
+                      />
+                : this.state.stepIndex === 3 ?
+                <StatusBadge
+                  state = {"3"}
+                  color = {Styles.palette.textColor}
+                  backgroundColor = {Styles.palette.primary1Color}
+                  />
+                :
+                <StatusBadge
+                 state = {"-1"}
+                 color = {Styles.palette.canvasColor}
+                 backgroundColor = {Styles.palette.primary1Color}
+                 />
+                }>
+              Auction ended
+            </StepLabel>
           </Step>
         </Stepper>
         <div style={contentStyle}>
