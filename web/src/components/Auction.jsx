@@ -15,7 +15,7 @@ export default class Auction extends Component {
   constructor(props){
     super(props)
     this.state = {
-      stepIndex: props.auction.state,
+      stepIndex: parseInt(props.auction.state,10),
       startingBid : "",
       immediateSell: ""
     }

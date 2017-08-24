@@ -9,7 +9,7 @@ export default class StatusBadge  extends Component {
                        paddingLeft:4,
                        paddingTop: 4
                      }}>
-          <svg width = "23" fill ={this.props.color}  x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 25 25">
+          <svg width = "23" fill ={this.props.color}  x="0px" y="0px" viewBox="0 0 24 24">
             {
               this.props.state === "-1" ?
               <g transform="translate(0,4)">
